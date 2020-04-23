@@ -20,23 +20,20 @@
     var CONFIG = {"hostname":"blog.xuesong.in","root":"/","scheme":"Mist","version":"7.7.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="记录一下是如何设置 Home Assistant 的吧。没有什么难点的部分就不写了，反正 Google 一下就找得到。">
-<meta name="keywords" content="Home Assistant,Server setup,Smart home,HomeKit">
+  <meta name="description" content="自从我配了台式机以后，始终缺一个可靠的音箱。买过 2.0, 也买过 2.1 声道的，最终结果就是其中某个坏掉，或者整个都不行了。其实我对音箱的要求真的不高，能正常出声音、稳定、方便就行了。我也用过小米的蓝牙音箱连接电脑，可靠是可靠，就是连接不怎么方便。 后来机缘巧合入手了一个 JBL go 2 音箱，虽然是个蓝牙音箱，但同时支持 AUX 连接电脑，这才部分解决了方便性的问题。为什么说部分呢？因为这">
+<meta name="keywords" content="Windows,AHK,NirSoft">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在家庭服务器中设置 Home Assistant">
-<meta property="og:url" content="http://blog.xuesong.in/2019/01/04/home-assistant-setup/index.html">
+<meta property="og:title" content="保持 JBL go 2 活跃">
+<meta property="og:url" content="http://blog.xuesong.in/2020/04/23/keep-jbl-go-2-alive/index.html">
 <meta property="og:site_name" content="随便写写">
-<meta property="og:description" content="记录一下是如何设置 Home Assistant 的吧。没有什么难点的部分就不写了，反正 Google 一下就找得到。">
+<meta property="og:description" content="自从我配了台式机以后，始终缺一个可靠的音箱。买过 2.0, 也买过 2.1 声道的，最终结果就是其中某个坏掉，或者整个都不行了。其实我对音箱的要求真的不高，能正常出声音、稳定、方便就行了。我也用过小米的蓝牙音箱连接电脑，可靠是可靠，就是连接不怎么方便。 后来机缘巧合入手了一个 JBL go 2 音箱，虽然是个蓝牙音箱，但同时支持 AUX 连接电脑，这才部分解决了方便性的问题。为什么说部分呢？因为这">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://blog.xuesong.in/images/home-assistant-snapshot.png">
-<meta property="og:image" content="http://blog.xuesong.in/images/home-app-snapshot.png">
-<meta property="og:updated_time" content="2020-03-26T12:55:31.398Z">
+<meta property="og:updated_time" content="2020-04-23T13:41:44.744Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="在家庭服务器中设置 Home Assistant">
-<meta name="twitter:description" content="记录一下是如何设置 Home Assistant 的吧。没有什么难点的部分就不写了，反正 Google 一下就找得到。">
-<meta name="twitter:image" content="http://blog.xuesong.in/images/home-assistant-snapshot.png">
+<meta name="twitter:title" content="保持 JBL go 2 活跃">
+<meta name="twitter:description" content="自从我配了台式机以后，始终缺一个可靠的音箱。买过 2.0, 也买过 2.1 声道的，最终结果就是其中某个坏掉，或者整个都不行了。其实我对音箱的要求真的不高，能正常出声音、稳定、方便就行了。我也用过小米的蓝牙音箱连接电脑，可靠是可靠，就是连接不怎么方便。 后来机缘巧合入手了一个 JBL go 2 音箱，虽然是个蓝牙音箱，但同时支持 AUX 连接电脑，这才部分解决了方便性的问题。为什么说部分呢？因为这">
 
-<link rel="canonical" href="http://blog.xuesong.in/2019/01/04/home-assistant-setup/">
+<link rel="canonical" href="http://blog.xuesong.in/2020/04/23/keep-jbl-go-2-alive/">
 
 
 <script id="page-configurations">
@@ -48,7 +45,7 @@
   };
 </script>
 
-  <title>在家庭服务器中设置 Home Assistant | 随便写写</title>
+  <title>保持 JBL go 2 活跃 | 随便写写</title>
   
 
 
@@ -158,7 +155,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.xuesong.in/2019/01/04/home-assistant-setup/">
+    <link itemprop="mainEntityOfPage" href="http://blog.xuesong.in/2020/04/23/keep-jbl-go-2-alive/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-amorphobia.png">
@@ -171,7 +168,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          在家庭服务器中设置 Home Assistant
+          保持 JBL go 2 活跃
         </h1>
 
         <div class="post-meta">
@@ -180,23 +177,17 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2019-01-04 20:14:41" itemprop="dateCreated datePublished" datetime="2019-01-04T20:14:41+08:00">2019-01-04</time>
+              <time title="创建时间：2020-04-23 20:59:11 / 修改时间：21:41:44" itemprop="dateCreated datePublished" datetime="2020-04-23T20:59:11+08:00">2020-04-23</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-26 20:55:31" itemprop="dateModified" datetime="2020-03-26T20:55:31+08:00">2020-03-26</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/server/" itemprop="url" rel="index"><span itemprop="name">server</span></a>
+                  <a href="/categories/tools/" itemprop="url" rel="index"><span itemprop="name">tools</span></a>
                 </span>
             </span>
 
@@ -211,28 +202,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>记录一下是如何设置 Home Assistant 的吧。没有什么难点的部分就不写了，反正 Google 一下就找得到。</p>
+        <p>自从我配了台式机以后，始终缺一个可靠的音箱。买过 2.0, 也买过 2.1 声道的，最终结果就是其中某个坏掉，或者整个都不行了。其实我对音箱的要求真的不高，能正常出声音、稳定、方便就行了。我也用过小米的蓝牙音箱连接电脑，可靠是可靠，就是连接不怎么方便。</p>
+<p>后来机缘巧合入手了一个 JBL go 2 音箱，虽然是个蓝牙音箱，但同时支持 AUX 连接电脑，这才部分解决了方便性的问题。为什么说部分呢？因为这音箱有个脑残的“功能”——如果一段时间内没有播放任何声音，就会自动关机。</p>
 <a id="more"></a>
 
-<h2 id="安装-Home-Assistant"><a href="#安装-Home-Assistant" class="headerlink" title="安装 Home Assistant"></a>安装 Home Assistant</h2><p>Google 之。</p>
-<h2 id="配置-Home-Assistant-中的-HomeKit"><a href="#配置-Home-Assistant-中的-HomeKit" class="headerlink" title="配置 Home Assistant 中的 HomeKit"></a>配置 Home Assistant 中的 HomeKit</h2><p>最简配置，添加到 <code>configuration.yaml</code> 里面。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">homekit:</span><br><span class="line">  auto_start: False</span><br></pre></td></tr></table></figure>
+<p>这个功能对于作为便携蓝牙音箱的情形还算是有用，自动关机节省电量，有需求的时候再开机。但是我是拿它当台式机音箱，充电线是始终连着的，不缺这点电呀……</p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>如何让这个音箱保持活跃呢？很简单，让它在关机之前播放声音就好了。通过多方搜索，我找到了 <a href="https://www.zhihu.com/question/41682642/answer/789367103" target="_blank" rel="noopener">求问如何避免蓝牙音箱自动关机。？ - 66666的回答 - 知乎</a> 这个答案。</p>
+<p>那么接下来就简单了，写了个 <a href="https://www.autohotkey.com/" target="_blank" rel="noopener">AHK</a> 脚本，每分钟让系统发出一个人耳察觉不到的声音，顺利解决这个问题了！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Loop &#123;</span><br><span class="line">	RunWait, &quot;%USERPROFILE%\scoop\apps\nircmd\current\nircmd.exe&quot; beep 30 100 ;</span><br><span class="line">	sleep, 60000 ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>自动启动关闭，否则 HomeKit 组件在设备还未接入完全的时候启动，在家庭 App 里就找不到设备。</p>
-<p>相反，在 <code>automations.yaml</code> 里面加入以下代码，在 Home Assistant 启动五分钟后再启动 HomeKit 组件。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">- id: &apos;$IDOFAUTOMATION&apos;</span><br><span class="line">  alias: Start HomeKit</span><br><span class="line">  trigger:</span><br><span class="line">  - event: start</span><br><span class="line">    platform: homeassistant</span><br><span class="line">  condition: []</span><br><span class="line">  action:</span><br><span class="line">  - delay: 00:05</span><br><span class="line">  - alias: &apos;&apos;</span><br><span class="line">    data: &#123;&#125;</span><br><span class="line">    service: homekit.start</span><br></pre></td></tr></table></figure>
-
-<h2 id="接入设备"><a href="#接入设备" class="headerlink" title="接入设备"></a>接入设备</h2><h3 id="Yeelight-吸顶灯"><a href="#Yeelight-吸顶灯" class="headerlink" title="Yeelight 吸顶灯"></a>Yeelight 吸顶灯</h3><p>Yeelight 吸顶灯可以在 App 里打开局域网控制，在启动 Home Assistant 的时候就会自动搜寻并添加，五分钟后启动 HomeKit 就能在 App 上出现了。</p>
-<h3 id="彩云天气"><a href="#彩云天气" class="headerlink" title="彩云天气"></a>彩云天气</h3><p>插件地址 <a href="https://github.com/Yonsm/HAExtra/blob/master/custom_components/sensor/caiyun.py" target="_blank" rel="noopener">caiyun.py</a>。复制到 <code>custom_components/sensor/</code> 里面，然后在 <code>configuration.yaml</code> 配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sensor:</span><br><span class="line">  - platform: caiyun</span><br></pre></td></tr></table></figure>
-
-<p>也可以顺便把默认的天气插件 <code>yr</code> 关掉。</p>
-<h3 id="米家空调伴侣-lumi-acpartner-v2"><a href="#米家空调伴侣-lumi-acpartner-v2" class="headerlink" title="米家空调伴侣 (lumi.acpartner.v2)"></a>米家空调伴侣 (lumi.acpartner.v2)</h3><p>由于前期调查没做好，买了个不支持<a href="http://docs.opencloud.aqara.cn/development/gateway-LAN-communication/" target="_blank" rel="noopener">局域网控制协议</a>的版本，无法将其当作网关加入 Home Assistant，只能当作空调加入。</p>
-<p>首先获取设备的 token，参考<a href="https://github.com/jghaanstra/com.xiaomi-miio/blob/master/docs/obtain_token.md" target="_blank" rel="noopener">这篇教程</a>。</p>
-<p>然后使用<a href="https://github.com/syssi/xiaomi_airconditioningcompanion" target="_blank" rel="noopener">这个插件</a>添加，使用方法见其 README。</p>
-<h3 id="石头扫地机器人-roborock-vacuum-s5"><a href="#石头扫地机器人-roborock-vacuum-s5" class="headerlink" title="石头扫地机器人 (roborock.vacuum.s5)"></a>石头扫地机器人 (roborock.vacuum.s5)</h3><p>获取 token 的方法与空调伴侣相同，然后参照<a href="https://www.home-assistant.io/components/vacuum.xiaomi_miio/" target="_blank" rel="noopener">官方教程</a>添加到 Home Assistant。值得注意的是，扫地机器人不适用于 HomeKit 组件，有待以后研究其他解决方案。</p>
-<p>最后看看成果吧：</p>
-<p><img src="/images/home-assistant-snapshot.png" alt="Home Assistant 截图"><br><img src="/images/home-app-snapshot.png" alt="家庭 App 截图"></p>
+<p>编译成可执行文件放到启动里，电脑不关机，音箱就会一直待命了。</p>
 
     </div>
 
@@ -242,10 +221,9 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Home-Assistant/" rel="tag"># Home Assistant</a>
-              <a href="/tags/Server-setup/" rel="tag"># Server setup</a>
-              <a href="/tags/Smart-home/" rel="tag"># Smart home</a>
-              <a href="/tags/HomeKit/" rel="tag"># HomeKit</a>
+              <a href="/tags/Windows/" rel="tag"># Windows</a>
+              <a href="/tags/AHK/" rel="tag"># AHK</a>
+              <a href="/tags/NirSoft/" rel="tag"># NirSoft</a>
           </div>
 
         
@@ -254,13 +232,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2017/04/30/my-site/" rel="prev" title="关于这个站点">
-      <i class="fa fa-chevron-left"></i> 关于这个站点
+    <a href="/2020/03/25/note-of-hexo-commands/" rel="prev" title="Hexo 命令笔记">
+      <i class="fa fa-chevron-left"></i> Hexo 命令笔记
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/03/25/note-of-hexo-commands/" rel="next" title="Hexo 命令笔记">
-      Hexo 命令笔记 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -320,7 +295,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-Home-Assistant"><span class="nav-number">1.</span> <span class="nav-text">安装 Home Assistant</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置-Home-Assistant-中的-HomeKit"><span class="nav-number">2.</span> <span class="nav-text">配置 Home Assistant 中的 HomeKit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接入设备"><span class="nav-number">3.</span> <span class="nav-text">接入设备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Yeelight-吸顶灯"><span class="nav-number">3.1.</span> <span class="nav-text">Yeelight 吸顶灯</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#彩云天气"><span class="nav-number">3.2.</span> <span class="nav-text">彩云天气</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#米家空调伴侣-lumi-acpartner-v2"><span class="nav-number">3.3.</span> <span class="nav-text">米家空调伴侣 (lumi.acpartner.v2)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#石头扫地机器人-roborock-vacuum-s5"><span class="nav-number">3.4.</span> <span class="nav-text">石头扫地机器人 (roborock.vacuum.s5)</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方法"><span class="nav-number">1.</span> <span class="nav-text">解决方法</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
