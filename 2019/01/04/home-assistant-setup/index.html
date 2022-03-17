@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 5.4.1">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-amorphobia.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-amorphobia.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-amorphobia.png">
@@ -30,7 +30,7 @@
 <meta property="og:image" content="http://blog.xuesong.io/images/home-assistant-snapshot.png">
 <meta property="og:image" content="http://blog.xuesong.io/images/home-app-snapshot.png">
 <meta property="article:published_time" content="2019-01-04T12:14:41.000Z">
-<meta property="article:modified_time" content="2021-04-24T12:06:44.960Z">
+<meta property="article:modified_time" content="2022-03-17T04:45:46.517Z">
 <meta property="article:author" content="Xuesong">
 <meta property="article:tag" content="Home Assistant">
 <meta property="article:tag" content="Server setup">
@@ -193,7 +193,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-24 20:06:44" itemprop="dateModified" datetime="2021-04-24T20:06:44+08:00">2021-04-24</time>
+                <time title="修改时间：2022-03-17 12:45:46" itemprop="dateModified" datetime="2022-03-17T12:45:46+08:00">2022-03-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -221,15 +221,15 @@
 
 <h2 id="安装-Home-Assistant"><a href="#安装-Home-Assistant" class="headerlink" title="安装 Home Assistant"></a>安装 Home Assistant</h2><p>Google 之。</p>
 <h2 id="配置-Home-Assistant-中的-HomeKit"><a href="#配置-Home-Assistant-中的-HomeKit" class="headerlink" title="配置 Home Assistant 中的 HomeKit"></a>配置 Home Assistant 中的 HomeKit</h2><p>最简配置，添加到 <code>configuration.yaml</code> 里面。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">homekit:</span><br><span class="line">  auto_start: False</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">homekit:</span><br><span class="line">  auto_start: False</span><br></pre></td></tr></table></figure>
 
 <p>自动启动关闭，否则 HomeKit 组件在设备还未接入完全的时候启动，在家庭 App 里就找不到设备。</p>
 <p>相反，在 <code>automations.yaml</code> 里面加入以下代码，在 Home Assistant 启动五分钟后再启动 HomeKit 组件。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">- id: &#39;$IDOFAUTOMATION&#39;</span><br><span class="line">  alias: Start HomeKit</span><br><span class="line">  trigger:</span><br><span class="line">  - event: start</span><br><span class="line">    platform: homeassistant</span><br><span class="line">  condition: []</span><br><span class="line">  action:</span><br><span class="line">  - delay: 00:05</span><br><span class="line">  - alias: &#39;&#39;</span><br><span class="line">    data: &#123;&#125;</span><br><span class="line">    service: homekit.start</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">- id: &#x27;$IDOFAUTOMATION&#x27;</span><br><span class="line">  alias: Start HomeKit</span><br><span class="line">  trigger:</span><br><span class="line">  - event: start</span><br><span class="line">    platform: homeassistant</span><br><span class="line">  condition: []</span><br><span class="line">  action:</span><br><span class="line">  - delay: 00:05</span><br><span class="line">  - alias: &#x27;&#x27;</span><br><span class="line">    data: &#123;&#125;</span><br><span class="line">    service: homekit.start</span><br></pre></td></tr></table></figure>
 
 <h2 id="接入设备"><a href="#接入设备" class="headerlink" title="接入设备"></a>接入设备</h2><h3 id="Yeelight-吸顶灯"><a href="#Yeelight-吸顶灯" class="headerlink" title="Yeelight 吸顶灯"></a>Yeelight 吸顶灯</h3><p>Yeelight 吸顶灯可以在 App 里打开局域网控制，在启动 Home Assistant 的时候就会自动搜寻并添加，五分钟后启动 HomeKit 就能在 App 上出现了。</p>
 <h3 id="彩云天气"><a href="#彩云天气" class="headerlink" title="彩云天气"></a>彩云天气</h3><p>插件地址 <a target="_blank" rel="noopener" href="https://github.com/Yonsm/HAExtra/blob/master/custom_components/sensor/caiyun.py">caiyun.py</a>。复制到 <code>custom_components/sensor/</code> 里面，然后在 <code>configuration.yaml</code> 配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sensor:</span><br><span class="line">  - platform: caiyun</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sensor:</span><br><span class="line">  - platform: caiyun</span><br></pre></td></tr></table></figure>
 
 <p>也可以顺便把默认的天气插件 <code>yr</code> 关掉。</p>
 <h3 id="米家空调伴侣-lumi-acpartner-v2"><a href="#米家空调伴侣-lumi-acpartner-v2" class="headerlink" title="米家空调伴侣 (lumi.acpartner.v2)"></a>米家空调伴侣 (lumi.acpartner.v2)</h3><p>由于前期调查没做好，买了个不支持<a target="_blank" rel="noopener" href="http://docs.opencloud.aqara.cn/development/gateway-LAN-communication/">局域网控制协议</a>的版本，无法将其当作网关加入 Home Assistant，只能当作空调加入。</p>
@@ -340,7 +340,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -352,7 +352,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -384,7 +384,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
